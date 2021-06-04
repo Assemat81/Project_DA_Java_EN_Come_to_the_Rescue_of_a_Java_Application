@@ -7,17 +7,21 @@ import java.util.TreeMap;
 
 public class AnalyticsCounter {
 
-	final Path FILENAME = Paths.get("Project02Eclipse/src/com/hemebiotech/analytics/symptoms.txt");
+	public static void main(String[] args) throws Exception {
 
-	ISymptomReader readSymptom = new ReadSymptomDataFromFile(FILENAME);
-	String line = readSymptom.symptomReader();
+		final Path FILENAME = Paths.get(
+				"PROJET2_Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application/Project02Eclipse/symptoms.txt");
 
-	Symptom symptomOrdered = new Symptom(FILENAME);
-	List<String> listOfSymptoms = symptomOrdered.createListOfSymptom(line);
+		ISymptomReader readSymptom = new ReadSymptomDataFromFile(FILENAME);
+		String line = readSymptom.symptomReader();
 
-	Counter symptomCounter = new Counter();
-	TreeMap<String, Long> counter = symptomCounter.countingOccurrences(listOfSymptoms);
-	
-	ISymptomWriter symptomWriter = new WriteResultInFile();
-	symptomWriter.writeSymptomAndOccurrence(counter);
+		Symptom symptomOrdered = new Symptom(FILENAME);
+		List<String> listOfSymptoms = symptomOrdered.createListOfSymptom(line);
+
+		Counter symptomCounter = new Counter();
+		TreeMap<String, Long> counter = symptomCounter.countingOccurrences(listOfSymptoms);
+
+		ISymptomWriter symptomWriter = new WriteResultInFile();
+		symptomWriter.writeSymptomAndOccurrence(counter);
+	}
 }
