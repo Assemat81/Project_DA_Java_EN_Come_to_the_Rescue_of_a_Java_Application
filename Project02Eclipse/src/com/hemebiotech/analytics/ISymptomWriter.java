@@ -7,6 +7,6 @@ public interface ISymptomWriter {
 	 * Write results of the TreeMap (symptom, occurrence)
 	 * 
 	 */
-	public void writeSymptomAndOccurrence(TreeMap<String, Long> counter);
+	public void writeNewFile(TreeMap<String, Long> counter);
 
 }

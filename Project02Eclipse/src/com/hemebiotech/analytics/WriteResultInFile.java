@@ -19,7 +19,7 @@ public class WriteResultInFile implements ISymptomWriter {
 	 * @throws Exception if the file is not create
 	 * 
 	 */
-	public void writeSymptomAndOccurrence(TreeMap<String, Long> counter) {
+	public void writeNewFile(TreeMap<String, Long> counter) {
 
 		try {
 

@@ -21,6 +21,6 @@ public class AnalyticsCounter {
 		TreeMap<String, Long> counter = symptomCounter.countingOccurrences(listOfSymptoms);
 
 		ISymptomWriter symptomWriter = new WriteResultInFile();
-		symptomWriter.writeSymptomAndOccurrence(counter);
+		symptomWriter.writeNewFile(counter);
 	}
 }
