@@ -9,8 +9,7 @@ public class AnalyticsCounter {
 
 	public static void main(String[] args) throws Exception {
 
-		final Path FILENAME = Paths.get(
-				"PROJET2_Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application/Project02Eclipse/symptoms.txt");
+		final Path FILENAME = Paths.get("Project02Eclipse/symptoms.txt");
 
 		ISymptomReader readSymptom = new ReadSymptomDataFromFile(FILENAME);
 		String line = readSymptom.symptomReader();
