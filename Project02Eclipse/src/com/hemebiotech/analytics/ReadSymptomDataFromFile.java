@@ -1,10 +1,9 @@
 package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 /**
  * Simple brute force implementation
@@ -12,36 +11,39 @@ import java.util.List;
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
-	private String filepath;
-	
-	/**
-	 * 
-	 * @param filepath a full or partial path to file with symptom strings in it, one per line
-	 */
-	public ReadSymptomDataFromFile (String filepath) {
-		this.filepath = filepath;
+	// attribute
+	Path FILENAME;
+
+	// constructor
+	public ReadSymptomDataFromFile(Path fILENAME) {
+		super();
+		FILENAME = fILENAME;
 	}
-	
-	@Override
-	public List<String> GetSymptoms() {
-		ArrayList<String> result = new ArrayList<String>();
-		
-		if (filepath != null) {
-			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
-				String line = reader.readLine();
-				
-				while (line != null) {
-					result.add(line);
-					line = reader.readLine();
-				}
-				reader.close();
-			} catch (IOException e) {
-				e.printStackTrace();
+
+	String line;
+
+	// Method to read file
+	/**
+	 * Read symptom data from a source
+	 * 
+	 * @param Path FILENAME
+	 * @return the return value from the operation is a list of strings that main
+	 *         contain many duplications. The implementation does not need to order
+	 *         the list
+	 * 
+	 * @throws IOException even if the file is not found
+	 */
+	public String symptomReader() throws IOException {
+		// try-with-resources construct here which will automatically handle the close
+		try (BufferedReader reader = Files.newBufferedReader(FILENAME)) {
+
+			while ((line = reader.readLine()) != null) {
+				System.out.println(line);
 			}
+		} catch (IOException e) {
 		}
-		
-		return result;
+
+		return line;
 	}
 
 }
