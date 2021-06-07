@@ -8,30 +8,45 @@ import java.util.List;
 
 public class Symptom extends ReadSymptomDataFromFile {
 
-	public Symptom(Path fILENAME) {
-		super(fILENAME);
+	public Symptom(Path FILENAME) {
+		super(FILENAME);
 
 	}
 
 	/**
-	 * Symptoms in alphabetical order
+	 * Symptoms in alphabetical order and in lower case
 	 * 
-	 * @return return list<String>getSymptoms: symptoms in a list which contain many
-	 *         duplications, in alphabetical order
+	 * @return return List<String>listOfLowerCaseSymptoms: symptoms in a list which
+	 *         contains many duplications, in alphabetical order and writing in
+	 *         lower case
 	 *
 	 */
 	public List<String> createListOfSymptom(String line) {
-		List<String> listOfSymptoms = new ArrayList<String>();
+		// create a list to include the elements of the file
+		List<String> originListOfSymptoms = new ArrayList<String>();
+
+		// create a list to put the elements of the file in lower case
+		List<String> listOfLowerCaseSymptoms = new ArrayList<String>();
 
 		try {
-			listOfSymptoms = new ArrayList<String>(Files.readAllLines(FILENAME));
-			// alphabetical order
-			Collections.sort(listOfSymptoms);
+			originListOfSymptoms = new ArrayList<String>(Files.readAllLines(FILENAME));
+
+			// "for" loop to convert all elements of the file in lower case
+			for (String curentSymptom : originListOfSymptoms) {
+				listOfLowerCaseSymptoms.add(curentSymptom.toLowerCase());
+
+			}
+
+			// sort the elements in alphabetical order
+			Collections.sort(listOfLowerCaseSymptoms);
+
+			System.out.println("\n" + "** The list of ordered symptoms containing duplications: ");
+			System.out.println(listOfLowerCaseSymptoms);
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return listOfSymptoms;
+		return listOfLowerCaseSymptoms;
 
 	}
 }
