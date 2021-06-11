@@ -36,7 +36,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		// try-with-resources construct which will automatically handle the close
 		try (BufferedReader reader = Files.newBufferedReader(FILENAME)) {
 			System.out.println("** The list of symptoms containing duplications: ");
-			// "while" loop to read each line
+			
 			while ((line = reader.readLine()) != null) {
 				System.out.println(line);
 			}
