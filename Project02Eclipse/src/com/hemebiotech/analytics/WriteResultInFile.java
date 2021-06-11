@@ -7,6 +7,11 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 
+/**
+ * 
+ * Create a new file and incorporate the results of the program
+ *
+ */
 public class WriteResultInFile implements ISymptomWriter {
 
 	/**
@@ -16,10 +21,10 @@ public class WriteResultInFile implements ISymptomWriter {
 	 * 
 	 * Write the pairs in the new file separate by "="
 	 * 
-	 * @throws Exception if the file is not create
+	 * @throws Exception if the file is not created
 	 * 
 	 */
-	public void writeNewFile(TreeMap<String, Long> counter) {
+	public void writeNewFile(TreeMap<String, Long> counter) throws Exception {
 
 		try {
 
@@ -43,6 +48,7 @@ public class WriteResultInFile implements ISymptomWriter {
 			}
 			newfile.close();
 		} catch (Exception e) {
+			System.out.println("The new file cannot be created");
 		}
 
 	}

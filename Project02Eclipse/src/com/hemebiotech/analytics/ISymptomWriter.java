@@ -2,11 +2,12 @@ package com.hemebiotech.analytics;
 
 import java.util.TreeMap;
 
+/**
+ * Write results of the TreeMap (symptom, occurrence)
+ * 
+ */
 public interface ISymptomWriter {
-	/**
-	 * Write results of the TreeMap (symptom, occurrence)
-	 * 
-	 */
-	public void writeNewFile(TreeMap<String, Long> counter);
+	
+	public void writeNewFile(TreeMap<String, Long> counter) throws Exception;
 
 }

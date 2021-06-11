@@ -7,5 +7,5 @@ package com.hemebiotech.analytics;
 public interface ISymptomReader {
 	// method to read the file
 	public String symptomReader() throws Exception;
-
 }
+

@@ -1,11 +1,17 @@
 package com.hemebiotech.analytics;
 
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * 
+ * Including the elements in a list of String
+ *
+ */
 public class Symptom extends ReadSymptomDataFromFile {
 
 	public Symptom(Path FILENAME) {
@@ -16,12 +22,13 @@ public class Symptom extends ReadSymptomDataFromFile {
 	/**
 	 * Symptoms in alphabetical order and in lower case
 	 * 
-	 * @return return List<String>listOfLowerCaseSymptoms: symptoms in a list which
+	 * @return return List of String called listOfLowerCaseSymptoms: symptoms in a list which
 	 *         contains many duplications, in alphabetical order and writing in
 	 *         lower case
+	 * @throws Exception even if the file is not found
 	 *
 	 */
-	public List<String> createListOfSymptom(String line) {
+	public List<String>createListOfSymptom(String line) throws Exception {
 		// create a list to include the elements of the file
 		List<String> originListOfSymptoms = new ArrayList<String>();
 
